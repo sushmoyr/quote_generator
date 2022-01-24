@@ -10,6 +10,12 @@ const newQuote = () => {
     const index = Math.floor(apiQuotes.length * Math.random());
     const quote = apiQuotes[index];
     authorText.textContent = (quote['author'] != null) ? quote['author'] : 'Unknown';
+
+    if (quote.text.length > 100){
+        quoteText.classList.add('long-quote');
+    } else {
+        quoteText.classList.remove('long-quote');
+    }
     quoteText.textContent = quote['text'];
 }
 
